@@ -1,5 +1,5 @@
 # Pizzeria Don Remolo Project
-Crypto Investment project
+Crypto Investment project (API)
 
 ## Rutas Pizzas
 - Obtener todas las pizzas: `GET http://localhost:8010/pizzas`
