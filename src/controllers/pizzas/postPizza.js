@@ -1,22 +1,14 @@
-const express = require("express");
-const router = express.Router();
 const Pizza = require("../../models/pizza");
+const { response } = require("../../utils");
 
-router.post("/", async (req, res) => {
-  const pizza = new Pizza({
+module.exports = async (req, res) => {
+  const newPizza = await Pizza.create({
     name: req.body.name,
     recet: req.body.recet,
-    sice: req.body.recet,
-    price: req.body.recet,
+    size: req.body.size,
+    price: req.body.price,
     img: req.body.img,
   });
-
-  try {
-    const newPizza = await pizza.save();
-    res.status(201).json(newPizza);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
-
-module.exports = router;
+  response(res, 201, "Pizza creada correctamente");
+};
+ 

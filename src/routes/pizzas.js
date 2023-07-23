@@ -1,15 +1,13 @@
-const express = require("express");
-const router = express.Router();
-const getPizzaRouter = require("../controllers/pizzas/getPizza");
-const getPizzaById = require("../controllers/pizzas/getPizzaById");
-const postPizza = require("../controllers/pizzas/postPizza");
-const putPizza = require("../controllers/pizzas/putPizza");
-const deletePizza = require("../controllers/pizzas/deletePizza");
+const { Router } = require("express");
+const controllers = require("../controllers/pizzas");
+const middlewares = require("../middlewares");
 
-router.use("/", getPizzaRouter);
-router.get("/:id", getPizzaById);
-router.post("/", postPizza);
-router.put("/:id", putPizza);
-router.delete("/:id", deletePizza);
+const router = Router();
+
+router.get("/", controllers.getPizzas);
+router.get("/:id", controllers.getPizzaById);
+router.post("/", middlewares.pizzaValidations, controllers.postPizza);
+router.put("/:id", middlewares.pizzaValidations, controllers.putPizza);
+router.delete("/:id", controllers.deletePizza);
 
 module.exports = router;
