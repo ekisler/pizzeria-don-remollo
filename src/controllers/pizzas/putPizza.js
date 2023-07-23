@@ -1,31 +1,23 @@
-const express = require("express");
-const router = express.Router();
 const Pizza = require("../../models/pizza");
+const { response } = require("../../utils");
 
-router.put("/:id", async (req, res) => {
+module.exports = async (req, res) => {
   const id = req.params.id;
+  const updatedPizza = await Pizza.findByIdAndUpdate(
+    id,
+    {
+      name: req.body.name,
+      recet: req.body.recet,
+      size: req.body.size,
+      price: req.body.price,
+      img: req.body.img,
+    },
+    { new: true }
+  );
 
-  try {
-    const updatedPizza = await Pizza.findByIdAndUpdate(
-      id,
-      {
-        name: req.body.name,
-        recet: req.body.recet,
-        sice: req.body.recet,
-        price: req.body.recet,
-        img: req.body.img,
-      },
-      { new: true }
-    );
-
-    if (!updatedPizza) {
-      return res.status(404).json({ message: "Pizza no encontrado" });
-    }
-
-    res.json(updatedPizza);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+  if (!updatedPizza) {
+    return res.status(404).json({ message: "Pizza no encontrado" });
   }
-});
 
-module.exports = router;
+  response(res, 201, "Pizza editada correctamente");
+};
