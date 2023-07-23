@@ -15,9 +15,5 @@ module.exports = async (req, res) => {
     { new: true }
   );
 
-  if (!updatedPizza) {
-    return res.status(404).json({ message: "Pizza no encontrado" });
-  }
-
   response(res, 201, "Pizza editada correctamente");
 };
