@@ -1,11 +1,12 @@
 const express = require("express");
 const cors = require("cors");
+const morgan = require("morgan");
 const connectDB = require("./db/db.js");
-
 const pizzasRouter = require("./routes/pizzas.js");
 
 const server = express();
 
+server.use(morgan("dev"));
 server.use(cors("*"));
 server.use(express.json());
 
