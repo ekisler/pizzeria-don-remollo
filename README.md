@@ -14,7 +14,7 @@ Crypto Investment project
 - Eliminar una pizza por ID: `DELETE http://localhost:8010/pizzas:id`
 
 # .env
-Debe crear un una Base de Datos en Mongo Atlas y configurar su BD y usuario, luego en su proyecto crear el archivo .env en la raiz de su proyecto con la siguiente variable de entorno: MONGO_URI=su url mongo atlas.
+Debe crear un una Base de Datos en MongDB Atlas y configurar su BD y usuario, luego en su proyecto crear el archivo .env en la raiz de su proyecto con la siguiente variable de entorno: MONGO_URI=su url mongo atlas.
 
 ## `Tecnologías utilizadas`
 
