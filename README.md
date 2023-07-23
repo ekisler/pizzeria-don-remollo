@@ -3,7 +3,7 @@ Crypto Investment project
 
 ## Rutas Pizzas
 - Obtener todas las pizzas: `GET http://localhost:8010/pizzas`
-![Get pizzas](https://res.cloudinary.com/dxfksb8ua/image/upload/v1688318157/nzmcclciagp9didbzt7r.png)
+![Get pizzas](https://res.cloudinary.com/dxfksb8ua/image/upload/v1690124052/r3et4eh485l5ze3k3utm.png)
 
 - Buscar una pizza por ID: `GET http://localhost:8010/pizzas/:id`
 
